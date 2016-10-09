@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.NoSuchElementException;
-import java.util.Objects;
+import com.google.common.base.Objects;
 
 abstract
 class AbstractImmutableList<E> extends AbstractCollection<E> implements List<E> {
@@ -132,7 +132,7 @@ class AbstractImmutableList<E> extends AbstractCollection<E> implements List<E> 
 
 		for(ListIterator<E> it = listIterator(); it.hasNext(); ){
 
-			if(Objects.equals(object, it.next())){
+			if(Objects.equal(object, it.next())){
 				return it.previousIndex();
 			}
 		}
@@ -145,7 +145,7 @@ class AbstractImmutableList<E> extends AbstractCollection<E> implements List<E> 
 
 		for(ListIterator<E> it = listIterator(size()); it.hasPrevious(); ){
 
-			if(Objects.equals(object, it.previous())){
+			if(Objects.equal(object, it.previous())){
 				return it.nextIndex();
 			}
 		}
